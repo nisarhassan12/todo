@@ -1,0 +1,30 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "A Todo PWA.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel ./src/index.html",
+    "prod": "parcel build ./src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nisarhassan12/todo.git"
+  },
+  "keywords": [
+    "HTML",
+    "CSS",
+    "JS",
+    "PWA"
+  ],
+  "author": "nisarhassan12",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nisarhassan12/todo/issues"
+  },
+  "homepage": "https://github.com/nisarhassan12/todo#readme",
+  "dependencies": {
+    "parcel": "^1.12.3"
+  }
+}
