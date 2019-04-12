@@ -26,5 +26,8 @@
   "homepage": "https://github.com/nisarhassan12/todo#readme",
   "dependencies": {
     "parcel": "^1.12.3"
+  },
+  "devDependencies": {
+    "sass": "^1.18.0"
   }
 }

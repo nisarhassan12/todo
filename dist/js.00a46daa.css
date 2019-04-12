@@ -1,0 +1,78 @@
+/* --------------------------------------- */
+/* ----- Imports ----- */
+/* --------------------------------------- */
+/* --------------------------------------- */
+/* ----- Basic Setup ----- */
+/* --------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.7rem;
+  font-family: "Cera Pro", sans-serif;
+  color: #5e6170;
+  background: #f0efe9;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  padding: 2rem 4rem;
+}
+@media (min-width: 450px) {
+  .container {
+    width: 50%;
+    min-width: 35rem;
+    max-width: 45rem;
+    max-height: 60rem;
+    margin: 9rem auto;
+    box-shadow: 0 0.2rem 0.4rem rgba(94, 97, 112, 0.1);
+    border-radius: 5px;
+  }
+}
+
+/* --------------------------------------- */
+/* ----- Time ----- */
+/* --------------------------------------- */
+.time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.time__left {
+  display: flex;
+}
+.time__date {
+  font-size: 5.5rem;
+  margin-right: 0.5rem;
+}
+.time__hack {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.3rem;
+}
+.time__year {
+  font-size: 1.5rem;
+  color: #9194a3;
+}
+.time__day {
+  text-transform: uppercase;
+  margin-top: 2.5rem;
+}
+
+/* --------------------------------------- */
+/* ----- Todos ----- */
+/* --------------------------------------- */
+
+/*# sourceMappingURL=/js.00a46daa.css.map */
