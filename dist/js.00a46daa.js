@@ -117,7 +117,63 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"js/utils.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addTodo = exports.render = void 0;
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+/* ----- Renderer ----- */
+var render = function render(todos, target) {
+  target.innerHTML = '';
+  todos.forEach(function (_ref) {
+    var name = _ref.name;
+    var todoEl = document.createElement('div');
+    var todoName = document.createElement('span');
+    var checkbox = document.createElement('input');
+    todoName.textContent = name;
+    checkbox.setAttribute('type', 'checkbox');
+    todoEl.appendChild(todoName);
+    todoEl.appendChild(checkbox);
+    target.appendChild(todoEl);
+  });
+};
+/* ----- Create UUID ----- */
+
+
+exports.render = render;
+
+var create_UUID = function create_UUID() {
+  var dt = new Date().getTime();
+  var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = (dt + Math.random() * 16) % 16 | 0;
+    dt = Math.floor(dt / 16);
+    return (c == 'x' ? r : r & 0x3 | 0x8).toString(16);
+  });
+  return uuid;
+};
+/* ----- Add Todo ----- */
+
+
+var addTodo = function addTodo(todos, todoName) {
+  return [{
+    id: create_UUID(),
+    name: todoName
+  }].concat(_toConsumableArray(todos));
+};
+
+exports.addTodo = addTodo;
+},{}],"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -192,8 +248,38 @@ module.hot.accept(reloadCSS);
 },{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
+var _utils = require("./utils");
+
 require("../scss/main.scss");
-},{"../scss/main.scss":"scss/main.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+/* --------------------------------------- */
+
+/* ----- Todo App ----- */
+
+/* --------------------------------------- */
+var todos = [{
+  id: '1',
+  name: 'Thing One'
+}, {
+  id: '2',
+  name: 'Thing Two'
+}, {
+  id: '3',
+  name: 'Thing Four'
+}];
+/* ----- Selectors ----- */
+
+var todoForm = document.querySelector('.add-todo');
+var todoContainer = document.querySelector('.todos');
+todoForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var todoName = e.target.elements.input.value;
+  e.target.elements.input.value = '';
+  todos = (0, _utils.addTodo)(todos, todoName);
+  (0, _utils.render)(todos, todoContainer);
+});
+(0, _utils.render)(todos, todoContainer);
+},{"./utils":"js/utils.js","../scss/main.scss":"scss/main.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -221,7 +307,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39273" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34393" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

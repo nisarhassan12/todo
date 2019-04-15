@@ -4,6 +4,7 @@
 
 @import './variables';
 @import './mixins';
+@import './checkbox';
 
 /* --------------------------------------- */
 /* ----- Basic Setup ----- */
@@ -15,6 +16,7 @@
     margin: 0;
     padding: 0;
     box-sizing: inherit;
+    font-family: inherit;
 }
 
 html {
@@ -30,10 +32,11 @@ body {
 }
 
 .container {
+    position: relative;
     width: 100vw;
     height: 100vh;
     background: $white;
-    padding: 2rem 4rem;
+    padding: 2rem 0;
 
     @media(min-width: 450px) {
         width: 50%;
@@ -44,6 +47,7 @@ body {
         box-shadow: 0 .2rem .4rem rgba($text-dark-0, .1);
         border-radius: 5px;
     }
+
 }
 
 /* --------------------------------------- */
@@ -70,8 +74,7 @@ body {
         margin-top: 1.3rem;
     }
 
-    &__month {
-    }
+    &__month {}
 
     &__year {
         font-size: 1.5rem;
@@ -89,3 +92,24 @@ body {
 /* --------------------------------------- */
 /* ----- Todos ----- */
 /* --------------------------------------- */
+
+.todo {
+
+    padding: 1.8rem 1rem;
+
+    &__container {
+        list-style: none;
+        margin-top: 3rem;
+    }
+
+}
+
+/* --------------------------------------- */
+/* ----- Add Todo ----- */
+/* --------------------------------------- */
+
+.add-todo {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

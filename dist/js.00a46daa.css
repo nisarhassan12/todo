@@ -10,6 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  font-family: inherit;
 }
 
 html {
@@ -25,10 +26,11 @@ body {
 }
 
 .container {
+  position: relative;
   width: 100vw;
   height: 100vh;
   background: #fff;
-  padding: 2rem 4rem;
+  padding: 2rem 0;
 }
 @media (min-width: 450px) {
   .container {
@@ -74,5 +76,21 @@ body {
 /* --------------------------------------- */
 /* ----- Todos ----- */
 /* --------------------------------------- */
+.todo {
+  padding: 1.8rem 1rem;
+}
+.todo__container {
+  list-style: none;
+  margin-top: 3rem;
+}
+
+/* --------------------------------------- */
+/* ----- Add Todo ----- */
+/* --------------------------------------- */
+.add-todo {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 
 /*# sourceMappingURL=/js.00a46daa.css.map */
